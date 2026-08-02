@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://devendralenka26-lgtm.github.io/Devendra-portfolio/sitemap.xml

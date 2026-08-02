@@ -3,16 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sarah Johnson - Computer Science Student | AI Enthusiast | Aspiring Software Engineer">
-    <meta name="keywords" content="Computer Science, Student Portfolio, AI, Machine Learning, Web Development">
-    <meta name="author" content="Sarah Johnson">
-    
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="Lenka Devendra - Student Portfolio">
-    <meta property="og:description" content="Computer Science Student | AI Enthusiast | Future Tech Innovator">
+    <meta name="description" content="L. Devendra is a B.Tech CSIT student focused on AI, data science, and practical machine learning projects.">
+    <meta name="keywords" content="L. Devendra, Devendra Lenka, Lenka Devendra, CSIT student, AI, Data Science, Machine Learning, Portfolio">
+    <meta name="author" content="L. Devendra">
+    <meta name="theme-color" content="#000000">
+    <link rel="canonical" href="https://devendralenka26-lgtm.github.io/Devendra-portfolio/">
+
+    <meta property="og:title" content="L. Devendra | AI & Data Science Enthusiast">
+    <meta property="og:description" content="B.Tech CSIT student exploring AI, data science, and practical machine learning projects.">
     <meta property="og:type" content="website">
-    
-    <title>Lenka Devendra - Student Portfolio</title>
+    <meta property="og:url" content="https://devendralenka26-lgtm.github.io/Devendra-portfolio/">
+    <meta property="og:image" content="https://devendralenka26-lgtm.github.io/Devendra-portfolio/main.jpeg">
+    <meta property="og:image:alt" content="Portrait of L. Devendra">
+    <meta property="og:site_name" content="L. Devendra Portfolio">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="L. Devendra | AI & Data Science Enthusiast">
+    <meta name="twitter:description" content="B.Tech CSIT student exploring AI, data science, and practical machine learning projects.">
+    <meta name="twitter:image" content="https://devendralenka26-lgtm.github.io/Devendra-portfolio/main.jpeg">
+    <meta name="twitter:image:alt" content="Portrait of L. Devendra">
+
+    <title>L. Devendra | B.Tech CSIT Student | AI & Data Science Enthusiast</title>
     
     <style>
         * {
@@ -170,6 +181,29 @@
         .nav-links a:hover,
         .nav-links a.active {
             color: var(--gold);
+        }
+
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            background: var(--gold);
+            color: var(--black);
+            padding: 0.75rem 1rem;
+            z-index: 2000;
+            border-radius: 0 0 0.5rem 0;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .skip-link:focus {
+            left: 0;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 4px;
         }
 
         .theme-toggle {
@@ -988,8 +1022,36 @@
             }
         }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "L. Devendra",
+      "alternateName": [
+        "Devendra Lenka",
+        "Lenka Devendra"
+      ],
+      "url": "https://devendralenka26-lgtm.github.io/Devendra-portfolio/",
+      "image": "https://devendralenka26-lgtm.github.io/Devendra-portfolio/main.jpeg",
+      "jobTitle": "B.Tech CSIT Student | AI & Data Science Enthusiast",
+      "sameAs": [
+        "https://github.com/devendralenka26-lgtm",
+        "https://www.linkedin.com/in/lenka-devendra-19b892398",
+        "https://www.instagram.com/i_am_devndra"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "L. Devendra Portfolio",
+      "url": "https://devendralenka26-lgtm.github.io/Devendra-portfolio/"
+    }
+    </script>
 </head>
 <body class="dark-mode">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <!-- Loading Screen -->
     <div id="loading-screen">
         <div>
@@ -999,9 +1061,9 @@
     </div>
 
     <!-- Navigation -->
-    <nav>
+    <nav aria-label="Primary navigation">
         <div class="nav-container">
-            <div class="logo" onclick="scrollToSection('home')">Lenka Devendra</div>
+            <div class="logo" onclick="scrollToSection('home')" role="button" tabindex="0" aria-label="Go to the home section" onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); scrollToSection('home'); }">L. Devendra</div>
             <ul class="nav-links">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
@@ -1026,7 +1088,7 @@
                     </svg>
                 </button></li>
             </ul>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu">
                 <svg class="icon">
                     <line x1="3" y1="12" x2="21" y2="12"></line>
                     <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -1044,15 +1106,16 @@
         </div>
     </nav>
 
+    <main id="main-content">
     <!-- Hero Section -->
     <section id="home">
         <div class="particles" id="particles"></div>
         <div class="hero-content">
             <div class="profile-image-container">
-                <img src="main.jpeg" alt="Lenka Devendra" class="profile-image">
+                <img src="main.jpeg" alt="Portrait of L. Devendra" class="profile-image" width="200" height="200" loading="eager" decoding="async">
             </div>
-            <h1 class="hero-title">Lenka Devendra</h1>
-            <p class="hero-subtitle">Computer Science Student | AI Enthusiast | Future Tech Innovator</p>
+            <h1 class="hero-title">L. Devendra</h1>
+            <p class="hero-subtitle">B.Tech CSIT Student | AI & Data Science Enthusiast | Aspiring AI Engineer</p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">
                     View My Work
@@ -1074,7 +1137,7 @@
                         <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                     </svg>
                 </a>
-                <a href="https://www.linkedin.com/in/lenka-devendra-19b892398 " class="social-link" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/lenka-devendra-19b892398" class="social-link" aria-label="LinkedIn">
                     <svg class="icon">
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                         <rect x="2" y="9" width="4" height="12"></rect>
@@ -1114,11 +1177,11 @@
                 <div class="about-text">
                     <h3>My Journey</h3>
                     <p>
-I am a passionate Computer Science student with a strong interest in Artificial Intelligence and modern technologies. My journey into programming began during my college studies when I started exploring how software and intelligent systems can solve real-world problems.
+I’m L. Devendra, also known as Devendra Lenka and Lenka Devendra, a B.Tech CSIT student with a strong interest in Artificial Intelligence, data science, and practical technology solutions. My journey into programming began during my college studies when I started exploring how software and intelligent systems can solve real-world problems.
 </p>
 
 <p>
-Currently, I am focusing on building strong foundations in Python, Data Structures, and AI technologies while improving my problem-solving skills through projects, coding practice, and continuous learning.
+Currently, I am building strong foundations in Python, data structures, machine learning, and AI while improving my problem-solving skills through projects, coding practice, and continuous learning.
 </p>
 
 <p>
@@ -1126,7 +1189,7 @@ Along with academics, I enjoy building small applications, practicing coding cha
 </p>
 
 <p>
-My goal is to become an AI Engineer and build innovative AI-powered solutions that can solve real-world problems and create a positive impact on society.
+My goal is to become an AI engineer and build innovative, responsible AI-powered solutions that create a positive impact on society.
 </p>
                     <div class="tags">
                         <span class="tag">Problem Solver</span>
@@ -1210,7 +1273,7 @@ My goal is to become an AI Engineer and build innovative AI-powered solutions th
                 </form>
 
                 <div class="contact-social">
-                    <a href="https://www.linkedin.com/in/lenka-devendra-19b892398 " class="contact-social-item">
+                    <a href="https://www.linkedin.com/in/lenka-devendra-19b892398" class="contact-social-item">
                         <svg class="contact-icon">
                             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                             <rect x="2" y="9" width="4" height="12"></rect>
@@ -1247,8 +1310,10 @@ My goal is to become an AI Engineer and build innovative AI-powered solutions th
     </section>
 
     <!-- Footer -->
+    </main>
+
     <footer>
-        <p class="footer-text">© 2026 Lenka Devendra. All rights reserved.</p>
+        <p class="footer-text">© 2026 L. Devendra. All rights reserved.</p>
         
 
     <!-- Scroll to Top Button -->
@@ -1504,7 +1569,7 @@ github: 'https://github.com/devendralenka26-lgtm/face-recognisation-attendance-s
                 const div = document.createElement('div');
                 div.className = 'project-card';
                 div.innerHTML = `
-                    <img src="${project.image}" alt="${project.title}" class="project-image">
+                    <img src="${project.image}" alt="Preview of ${project.title}" class="project-image" width="600" height="400" loading="lazy" decoding="async">
                     <div class="project-content">
                         <span class="project-category">${project.category}</span>
                         <h3 class="project-title">${project.title}</h3>
@@ -1513,7 +1578,7 @@ github: 'https://github.com/devendralenka26-lgtm/face-recognisation-attendance-s
                             ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
                         </div>
                         <div class="project-links">
-                            <a href="${project.github}" class="project-link">
+                            <a href="${project.github}" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View ${project.title} on GitHub">
                                 <svg class="icon" style="width:16px;height:16px;">
                                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                                 </svg>
