@@ -1514,23 +1514,7 @@
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
             transform: translateY(-1px);
         }
-        @media (max-width: 768px) {
-            .certs-container {
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                padding-bottom: 1.5rem;
-                gap: 1.25rem;
-                scroll-behavior: smooth;
-                -webkit-overflow-scrolling: touch;
-            }
-            .cert-card {
-                min-width: 290px;
-                max-width: 320px;
-                scroll-snap-align: start;
-                flex-shrink: 0;
-            }
-        }
+
         
         /* Subtle Animated Pulse Outline for Founder Card */
         .founder-section {
@@ -1720,6 +1704,374 @@
                 gap: 1.25rem;
             }
         }
+
+        /* ==================================================
+           COMPREHENSIVE RESPONSIVENESS CORRECTIONS
+           ================================================== */
+        
+        /* 1. Global Reset & Layout Constraints */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        * {
+            box-sizing: border-box;
+            overflow-wrap: break-word;
+        }
+        body {
+            font-size: 16px;
+        }
+        @media (max-width: 768px) {
+            body {
+                font-size: 15px;
+            }
+            section {
+                padding: 4rem 0 !important; /* ~64px vertical padding */
+            }
+            .container {
+                padding: 0 1.25rem !important; /* ~20px horizontal margin */
+            }
+            .section-title {
+                font-size: clamp(2rem, 6vw, 2.5rem) !important;
+            }
+            .section-divider {
+                margin-bottom: 2rem !important;
+            }
+        }
+
+        /* 2. Navbar & Mobile Menu Drawer */
+        nav {
+            height: 70px !important;
+            display: flex !important;
+            align-items: center !important;
+            padding: 0 2rem !important;
+        }
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none !important;
+            }
+            .mobile-menu-btn {
+                display: block !important;
+            }
+            /* Drawer style mobile menu */
+            .mobile-menu {
+                display: flex !important;
+                flex-direction: column !important;
+                position: fixed !important;
+                top: 70px !important;
+                left: 0 !important;
+                right: 0 !important;
+                background: rgba(10, 10, 12, 0.98) !important;
+                backdrop-filter: blur(15px) !important;
+                -webkit-backdrop-filter: blur(15px) !important;
+                padding: 1.5rem 1.25rem !important;
+                border-bottom: 1.5px solid rgba(212, 175, 55, 0.3) !important;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+                z-index: 999 !important;
+                transform: translateY(-120%) !important;
+                opacity: 0 !important;
+                pointer-events: none !important;
+                transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease !important;
+            }
+            .mobile-menu.active {
+                transform: translateY(0) !important;
+                opacity: 1 !important;
+                pointer-events: auto !important;
+            }
+            body:not(.dark-mode) .mobile-menu {
+                background: rgba(255, 255, 255, 0.98) !important;
+                border-bottom: 1.5px solid rgba(212, 175, 55, 0.15) !important;
+            }
+            .mobile-menu a {
+                padding: 0.85rem 1rem !important;
+                font-size: 1.05rem !important;
+                font-weight: 600 !important;
+                border-radius: 8px !important;
+                transition: background 0.2s, color 0.2s !important;
+            }
+            .mobile-menu a:hover {
+                background: rgba(212, 175, 55, 0.08) !important;
+            }
+        }
+        @media (max-width: 480px) {
+            nav {
+                padding: 0 1.25rem !important;
+            }
+        }
+
+        /* 3. Hero Section (Two-Column Desktop & Clean Stacking Order) */
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            z-index: 10;
+        }
+        .hero-text-side {
+            flex: 1.2;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .hero-visual-side {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--gold);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #10b981;
+            animation: statusPulse 2s infinite alternate;
+        }
+        @keyframes statusPulse {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            100% { transform: scale(1.1); opacity: 1; }
+        }
+        .hero-title {
+            font-size: clamp(2.4rem, 5.5vw, 4.2rem) !important;
+            line-height: 1.15 !important;
+            margin-bottom: 1.25rem !important;
+        }
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.7rem) !important;
+            margin-bottom: 1.25rem !important;
+            text-align: left !important;
+            max-width: 100% !important;
+        }
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.25rem;
+            line-height: 1.6;
+            max-width: 580px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: flex-start !important;
+        }
+        .social-links {
+            justify-content: flex-start !important;
+            margin-bottom: 0 !important;
+        }
+        .hero-stats-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+        .hero-stats {
+            margin-top: 0 !important;
+            justify-content: flex-start !important;
+        }
+
+        @media (max-width: 992px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 2.5rem;
+                padding: 6.5rem 1.25rem 3rem;
+            }
+            .hero-text-side {
+                align-items: center;
+                text-align: center;
+                order: 1;
+            }
+            .hero-visual-side {
+                order: 2;
+            }
+            .hero-subtitle {
+                text-align: center !important;
+            }
+            .hero-desc {
+                text-align: center;
+            }
+            .hero-buttons {
+                justify-content: center !important;
+            }
+            .social-links {
+                justify-content: center !important;
+                margin-bottom: 1.5rem !important;
+            }
+            .hero-stats-wrapper {
+                padding: 0 1.25rem 3rem;
+            }
+            .hero-stats {
+                justify-content: center !important;
+            }
+            #home::before {
+                width: 340px !important;
+                height: 340px !important;
+            }
+        }
+        @media (max-width: 600px) {
+            .hero-buttons {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            .hero-buttons .btn {
+                width: 100% !important;
+                max-width: 280px !important;
+                justify-content: center !important;
+            }
+        }
+
+        /* 4. Unified Button Spacing & Accessible Sizing */
+        .btn, .cert-link, .project-link, .founder-link-btn, .submit-btn {
+            min-height: 44px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 0.8rem 1.5rem !important;
+            font-size: 0.95rem !important;
+            box-sizing: border-box !important;
+        }
+        .project-links {
+            gap: 0.75rem !important;
+        }
+        @media (max-width: 480px) {
+            .project-links {
+                flex-direction: column !important;
+            }
+            .project-link {
+                width: 100% !important;
+            }
+        }
+
+        /* 5. About Section Alignment */
+        @media (max-width: 768px) {
+            .about-content {
+                padding: 0 !important;
+            }
+            .about-text h3 {
+                font-size: 1.6rem !important;
+                margin-bottom: 1.25rem !important;
+            }
+            .about-text p {
+                font-size: 15px !important;
+                line-height: 1.7 !important;
+                margin-bottom: 1rem !important;
+            }
+        }
+
+        /* 6. Skills Grid Sizing */
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1.25rem !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .skills-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* 7. Projects Layout Grid */
+        .projects-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+        }
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+        }
+
+        /* 8. Experience Timeline Stacking */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 16px !important;
+            }
+            .timeline-item {
+                width: 100% !important;
+                padding-left: 2.75rem !important;
+                padding-right: 0 !important;
+                margin-bottom: 2rem !important;
+            }
+            .timeline-item:nth-child(odd) {
+                text-align: left !important;
+            }
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 16px !important;
+            }
+            .timeline-item:nth-child(even) {
+                left: 0 !important;
+            }
+            .placeholder-badge {
+                position: relative !important;
+                top: 0 !important;
+                right: 0 !important;
+                display: inline-block !important;
+                margin-bottom: 0.75rem !important;
+                width: fit-content !important;
+            }
+            .timeline-content {
+                padding: 1.5rem !important;
+            }
+            .timeline-org {
+                padding-right: 0 !important;
+            }
+        }
+
+        /* 9. Certifications Sizing */
+        .certs-container {
+            grid-template-columns: repeat(3, 1fr) !important;
+        }
+        @media (max-width: 992px) {
+            .certs-container {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+        @media (max-width: 600px) {
+            .certs-container {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+        }
+
+        /* 10. Contact Section Formatting */
+        @media (max-width: 768px) {
+            .contact-social-item {
+                min-height: 44px !important;
+            }
+        }
     </style>
     <script type="application/ld+json">
     {
@@ -1807,57 +2159,72 @@
     <!-- Hero Section -->
     <section id="home">
         <div class="particles" id="particles"></div>
-        <div class="hero-content">
-            <div class="profile-image-container">
-                <img src="main.jpeg" alt="Portrait of L. Devendra" class="profile-image" width="200" height="200" loading="eager" decoding="async">
-            </div>
-            <h1 class="hero-title">HELLO, I'M <span class="gradient-text">DEVENDRA</span></h1>
-            <p class="hero-subtitle" style="font-size: 1.8rem; max-width: 800px; margin: 0 auto 2rem; line-height: 1.4; font-weight: 500;">
-                Building <span class="gradient-text">Digital Experiences</span> with Technology & <span class="gradient-text">AI</span>.
-            </p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">
-                    View My Work
-                    <svg class="icon" style="width:20px;height:20px;">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </a>
-                <a href="#contact" class="btn btn-secondary">
-                    Contact Me
-                    <svg class="icon" style="width:20px;height:20px;">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                        <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg>
-                </a>
-            </div>
-            <div class="social-links">
-                <a href="https://github.com/devendralenka26-lgtm?tab=repositories" class="social-link" aria-label="GitHub">
-                    <svg class="icon">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                    </svg>
-                </a>
-                <a href="https://www.linkedin.com/in/lenka-devendra-19b892398" class="social-link" aria-label="LinkedIn">
-                    <svg class="icon">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                        <rect x="2" y="9" width="4" height="12"></rect>
-                        <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-                </a>
-                <a href="https://www.instagram.com/i_am_devndra?igsh=MWZrbXl3bGdzb210aQ==" class="social-link" aria-label="Instagram">
-                    <svg class="icon">
-                        <rect x="4" y="4" width="16" height="16" rx="5" ry="5"></rect>
-                        <circle cx="12" cy="12" r="4"></circle>
-                        <circle cx="18" cy="6" r="1.2"></circle>
-                    </svg>
-                </a>
-                <a href="mailto:devendralenka26@gmail.com" class="social-link" aria-label="Gmail">
-                    <svg class="icon">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                        <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg>
-                </a>
+        <div class="hero-container">
+            <div class="hero-text-side">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    Available for Work & Collaboration
+                </div>
+                <h1 class="hero-title">HELLO, I'M <span class="gradient-text">DEVENDRA</span></h1>
+                <p class="hero-subtitle">
+                    Building <span class="gradient-text">Digital Experiences</span> with Technology & <span class="gradient-text">AI</span>.
+                </p>
+                <p class="hero-desc">
+                    B.Tech CSIT student passionate about web development, custom automation systems, artificial intelligence, and machine learning pipelines.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary" aria-label="View Projects">
+                        View My Work
+                        <svg class="icon" style="width:20px;height:20px;">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary" aria-label="Contact Me">
+                        Contact Me
+                        <svg class="icon" style="width:20px;height:20px;">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://github.com/devendralenka26-lgtm?tab=repositories" class="social-link" aria-label="GitHub">
+                        <svg class="icon">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/lenka-devendra-19b892398" class="social-link" aria-label="LinkedIn">
+                        <svg class="icon">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/i_am_devndra?igsh=MWZrbXl3bGdzb210aQ==" class="social-link" aria-label="Instagram">
+                        <svg class="icon">
+                            <rect x="4" y="4" width="16" height="16" rx="5" ry="5"></rect>
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <circle cx="18" cy="6" r="1.2"></circle>
+                        </svg>
+                    </a>
+                    <a href="mailto:devendralenka26@gmail.com" class="social-link" aria-label="Gmail">
+                        <svg class="icon">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+                </div>
             </div>
             
+            <div class="hero-visual-side">
+                <div class="profile-image-container">
+                    <img src="main.jpeg" alt="Portrait of L. Devendra" class="profile-image" width="220" height="220" loading="eager" decoding="async">
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-stats-wrapper">
             <div class="hero-stats">
                 <div class="hero-stat-item">
                     <span class="hero-stat-num" data-target="7">0</span><span>+ Certifications</span>
@@ -1876,6 +2243,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="scroll-indicator">
             <svg class="icon" style="color:var(--gold);width:32px;height:32px;">
                 <polyline points="6 9 12 15 18 9"></polyline>
@@ -2654,7 +3022,8 @@ I believe in a continuous cycle: <strong><span class="gradient-text">Learn → B
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
 
-        mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             mobileMenu.classList.toggle('active');
         });
 
@@ -2663,6 +3032,13 @@ I believe in a continuous cycle: <strong><span class="gradient-text">Learn → B
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
             });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+            }
         });
 
         // Smooth Scrolling
