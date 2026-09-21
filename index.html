@@ -2072,6 +2072,160 @@
                 min-height: 44px !important;
             }
         }
+        /* ===== HOME PAGE ALIGNMENT FIX ===== */
+
+#home {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 105px 24px 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-image-container {
+    width: 175px;
+    height: 175px;
+    margin: 0 auto 26px;
+}
+
+.hero-title {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto 14px;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 28px;
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    width: 100%;
+    margin: 0 auto 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+
+.social-link {
+    width: 46px;
+    height: 46px;
+}
+
+.scroll-indicator {
+    bottom: 20px;
+}
+
+
+/* ===== TABLET ===== */
+
+@media (max-width: 768px) {
+
+    #home {
+        padding: 100px 20px 65px;
+    }
+
+    .profile-image-container {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 22px;
+    }
+
+    .hero-title {
+        font-size: clamp(2.1rem, 9vw, 3rem);
+        line-height: 1.12;
+    }
+
+    .hero-subtitle {
+        font-size: 1.05rem;
+        max-width: 600px;
+    }
+
+}
+
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 480px) {
+
+    #home {
+        min-height: 100svh;
+        padding: 92px 18px 62px;
+    }
+
+    .profile-image-container {
+        width: 125px;
+        height: 125px;
+        margin-bottom: 20px;
+    }
+
+    .hero-title {
+        font-size: 2.15rem;
+        line-height: 1.12;
+        letter-spacing: -0.5px;
+        margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.98rem;
+        line-height: 1.55;
+        margin-bottom: 22px;
+    }
+
+    .hero-buttons {
+        width: 100%;
+        max-width: 280px;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 22px;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .social-links {
+        gap: 11px;
+    }
+
+    .social-link {
+        width: 42px;
+        height: 42px;
+    }
+
+    .scroll-indicator {
+        bottom: 12px;
+    }
+}
     </style>
     <script type="application/ld+json">
     {
